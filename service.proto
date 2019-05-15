@@ -1,0 +1,19 @@
+syntax = "proto3";
+package Echo;
+
+import "google/api/annotations.proto";
+
+message EchoMessage {
+  string value = 1;
+}
+
+// Define a service whose input and output is EchoMessage
+service EchoService {
+  rpc Echo(EchoMessage) returns (EchoMessage) {
+    // Add metadata to expose gRPC via a REST gateway that maps to urls
+    option (google.api.http) = {
+      post: "/v1/echo"
+      body: "*"
+    };
+  }
+}
