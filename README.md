@@ -16,24 +16,20 @@ brew install protobuf
 ```
 
 We also need the grpc-gateway packages
-```
-go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
-go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+``` 
 go get -u github.com/golang/protobuf/protoc-gen-go
 ```
 
 ## Code Generation
 
 ```
-./ctl.sh generate
+./ctl.sh gen stub
 ```
 
-## Verify
+## Run
 
 ```
-./ctl.sh test
+echo_server &
+
+echo_client "Alejandro"
 ```
-
-View the api docs here
-
-<a href="http://localhost:8080/swagger-ui/#!/EchoService/Echo">http://localhost:8080/swagger-ui/#!/EchoService/Echo</a>

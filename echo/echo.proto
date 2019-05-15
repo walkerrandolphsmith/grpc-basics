@@ -8,7 +8,7 @@ message EchoMessage {
 }
 
 // Define a service whose input and output is EchoMessage
-service EchoService {
+service Echo {
   rpc Echo(EchoMessage) returns (EchoMessage) {
     // Add metadata to expose gRPC via a REST gateway that maps to urls
     option (google.api.http) = {
